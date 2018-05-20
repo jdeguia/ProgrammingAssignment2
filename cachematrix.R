@@ -1,4 +1,4 @@
-A## This function creates a special matrix object that can cache its 
+## This function creates a special matrix object that can cache its 
 ## inverse cacheSolve. This function computes for the inverse of the 
 ## special matrix as it was given by makeCacheMatrix. The inverse is 
 ## calculated from the cacheSolve function and get the inverse from 
@@ -18,8 +18,10 @@ setinverse <- function(inverse)	i <<- inverse
 getinverse <- function() i
 list (set = set, get = get, setinverse = setinverse, getinverse = getinverse)
 }
-
+## cacheSolve is a function taht compute the inverse of a special matrix
+## and it gives the makeCacheMatrix.
 cacheSolve <- function(x, ...) {
+	## Return a matrix of inverse of x
 	i <- x$getinverse()
 	if (!is.null(i)) {
 			message("getting the cached data")
@@ -30,4 +32,11 @@ cacheSolve <- function(x, ...) {
 	x$setinverse(i)
 	i
 }
-
+## to check the program
+## B <- matrix(c(1,2,3,4),2,2)
+## B1 <- makeCacheMatrix(B)
+## cacheSolve(B1)
+##       [,1] [,2]
+## [1,]   -2  1.5
+## [2,]    1 -0.5
+ 
